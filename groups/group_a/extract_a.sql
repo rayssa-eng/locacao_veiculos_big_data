@@ -21,7 +21,7 @@ FROM group_a.Patios;
 
 
 -- Veiculos
-INSERT INTO dwh.Veiculo (Cd_Veiculo, Nm_Marca, Nm_Modelo, Nm_Cor, Ds_Ar_Condicionado, Ds_Motorizacao, Nm_Pneu, Cd_Categoria, Vl_Valor_da_Categoria, Nu_Placa, Nu_Chassi, Ds_Foto)
+INSERT INTO dwh.Veiculo (Cd_Veiculo, Nm_Marca, Nm_Modelo, Nm_Cor, Ds_Ar_Condicionado, Ds_Motorizacao, Nm_Pneu, Vl_Valor_da_Categoria, Nu_Placa, Nu_Chassi, Ds_Foto)
 SELECT ID_Veiculo AS Cd_Veiculo,
        Marca AS Nm_Marca,
        Modelo AS Nm_Modelo,
@@ -29,12 +29,16 @@ SELECT ID_Veiculo AS Cd_Veiculo,
        Ar_Condicionado AS Ds_Ar_Condicionado,
        Mecanizacao AS Ds_Motorizacao,
        NULL AS Nm_Pneu,
-       NULL AS Cd_Categoria,
        NULL AS Vl_Valor_da_Categoria,
        Placa AS Nu_Placa,
        NULL AS Nu_Chassi,
        Link_Fotos AS Ds_Foto
 FROM group_a.Veiculos;
+
+-- Grupo = categoria
+INSERT INTO dwh.Veiculo(Cd_Categoria)
+SELECT nome_grupo AS Cd_Categoria
+FROM group_a.grupos_veiculos;
 
 
 -- Locacao (fact) = reservas_m 
@@ -45,6 +49,7 @@ SELECT ID_Reserva AS Cd_Locacao,
        Patio_Retirada AS CD_Patio
 FROM group_a.Reservas;
 
+-- Insert dates into our Reserva table
 INSERT INTO dwh.Reserva (Dt_Reserva, Dt_Entrega, Dt_Devolucao)
 
 SELECT Data_Reserva AS Dt_Reserva,
