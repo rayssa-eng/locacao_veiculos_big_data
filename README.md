@@ -13,5 +13,5 @@ A fim de focar no intuito da avaliação, o modelo consistirá em apenas 5 entid
 
 Nosso fato central é a entidade "Locação".
 
-#### Extract e Transform
+## Extract e Transform
 Os arquivos extract_transform.sql de cada grupo estão em suas respectivas pastas, juntamente ao diagrama relacional e ao arquivo de criação de tabelas.
