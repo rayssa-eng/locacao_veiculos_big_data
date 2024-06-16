@@ -20,19 +20,14 @@ SELECT PatioID AS Cd_Patio,
 FROM group_f.Patio;
 
 -- Reserva table
-INSERT INTO dwh.Reserva (Cd_Reserva, Dt_Reserva, Dt_Entrega, Dt_Devolucao, Nm_Grupo, Cd_Cliente, Cd_Veiculo, Cd_Situacao)
+INSERT INTO dwh.Reserva (Cd_Reserva, Dt_Reserva, Dt_Entrega, Dt_Devolucao, Cd_Situacao)
 SELECT ReservaID AS Cd_Reserva,
        DataReserva AS Dt_Reserva,
        DataInicio AS Dt_Entrega,
        DataFim AS Dt_Devolucao,
-       Grupo,
-       ClienteID AS Cd_Cliente,
-       VeiculoID AS Cd_Veiculo,
-       CASE
-           WHEN Status = 'Ativa' THEN TRUE
-           ELSE FALSE
-       END AS Cd_Situacao
+       Status AS Cd_Situacao
 FROM group_f.Reserva;
+
 
 -- Veículo table
 INSERT INTO dwh.Veiculo (Cd_Veiculo, Nu_Placa, Nm_Marca, Nm_Modelo, Nm_Cor, Ds_Ar_Condicionado, Ds_Motorizacao, Nm_Pneu, Cd_Categoria, Vl_Valor_da_Categoria)
@@ -44,7 +39,7 @@ SELECT VeiculoID AS Cd_Veiculo,
        ArCondicionado AS Ds_Ar_Condicionado,
        Mecanizacao AS Ds_Motorizacao,
        NULL AS Nm_Pneu,
-       NULL AS Cd_Categoria,
+       Grupo AS Cd_Categoria,
        NULL AS Vl_Valor_da_Categoria
 FROM group_f.Veículo;
 
@@ -54,10 +49,6 @@ SELECT LocacaoID AS Cd_Locacao,
        ReservaID AS Cd_Reserva,
        PatioRetiradaID AS Cd_Patio,
        ClienteID AS Cd_Cliente,
-       Retirada AS Dt_Intervalo_de_Tempo,
        NULL AS Nu_Total_por_Veiculo,
        NULL AS Qt_Locacoes_por_Veiculo
 FROM group_f.Locacao;
-
-
-
