@@ -13,9 +13,5 @@ A fim de focar no intuito da avaliação, o modelo consistirá em apenas 5 entid
 
 Nosso fato central é a entidade "Locação".
 
-### Extract e Transform
+#### Extract e Transform
 Os arquivos extract_transform.sql de cada grupo estão em suas respectivas pastas, juntamente ao diagrama relacional e ao arquivo de criação de tabelas.
-
-### Tabelas para comparação
- #### grupo_a
-![](https://github.com/rayssa-eng/locacao_veiculos_big_data/blob/47fce1f8ebf225406fe626487a12669b594df6d5/ours/diagram_r_(ours).jpg)
