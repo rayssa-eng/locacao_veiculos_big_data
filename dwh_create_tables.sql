@@ -60,7 +60,7 @@ CREATE TABLE dwh_veiculo
     Cd_Categoria       VARCHAR(30),
     Vl_Valor_da_Categoria   DECIMAL(15,2),
     Ds_Ar_Condicionado BOOLEAN,
-    Ds_Foto            BYTEA
+    Ds_Foto            CHAR
 );
 
 -- Fact Table: Locacao

@@ -55,7 +55,7 @@ CREATE TABLE Veiculo
     Cd_Categoria            VARCHAR(30),
     Vl_Valor_da_Categoria   DECIMAL(15,2),
     Ds_Ar_Condicionado      BOOLEAN,
-    Ds_Foto                 BYTEA -- URL
+    Ds_Foto                 CHAR -- URL
 );
 
 -- Fact Table: Locacao
