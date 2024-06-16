@@ -30,7 +30,7 @@ FROM group_f.Reserva;
 
 
 -- Veículo table
-INSERT INTO dwh.Veiculo (Cd_Veiculo, Nu_Placa, Nm_Marca, Nm_Modelo, Nm_Cor, Ds_Ar_Condicionado, Ds_Motorizacao, Nm_Pneu, Cd_Categoria, Vl_Valor_da_Categoria)
+INSERT INTO dwh.Veiculo (Cd_Veiculo, Nu_Placa, Nm_Marca, Nm_Modelo, Nm_Cor, Ds_Ar_Condicionado, Ds_Motorizacao, Nm_Pneu, Cd_Categoria, Vl_Valor_da_Categoria, Ds_Foto)
 SELECT VeiculoID AS Cd_Veiculo,
        Placa AS Nu_Placa,
        Marca AS Nm_Marca,
@@ -40,7 +40,8 @@ SELECT VeiculoID AS Cd_Veiculo,
        Mecanizacao AS Ds_Motorizacao,
        NULL AS Nm_Pneu,
        Grupo AS Cd_Categoria,
-       NULL AS Vl_Valor_da_Categoria
+       NULL AS Vl_Valor_da_Categoria,
+       fotos::CHAR AS Ds_Foto
 FROM group_f.Veículo;
 
 -- Locacao table
