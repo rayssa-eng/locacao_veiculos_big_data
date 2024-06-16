@@ -2,14 +2,13 @@ SET search_path TO group_m;
 
 
 -- Veiculo
-INSERT INTO dwh.Veiculo (Cd_Veiculo, Nu_Placa, Nm_Marca, Nm_Modelo, Nm_Cor, Cd_Categoria, Ds_Ar_Condicionado, Ds_Foto)
+INSERT INTO dwh.Veiculo (Cd_Veiculo, Nu_Placa, Nm_Marca, Nm_Modelo, Nm_Cor, Ds_Ar_Condicionado, Ds_Foto)
 SELECT
     ID_Veiculo AS Cd_Veiculo,
     Placa AS Nu_Placa,
     Marca AS Nm_Marca,
     Modelo AS Nm_Modelo,
     Cor AS Nm_Cor,
-    Grupo_Categoria AS Cd_Categoria,
     Ar_Condicionado AS Ds_Ar_Condicionado,
     Foto_URL AS Ds_Foto
 FROM
@@ -18,7 +17,7 @@ FROM
 -- Insert Categoria table into dwh.Veiculo
 INSERT INTO dwh.Veiculo (Cd_Categoria, Vl_Valor_da_Categoria)
 SELECT
-	ID_Grupo AS Cd_Categoria,
+	Nome AS Cd_Categoria,
 	Faixa_Valor_Diaria AS Vl_Valor_da_Categoria
 FROM group_m.Grupo_Categoria;
    
@@ -39,7 +38,7 @@ FROM
     group_m.Cliente;
 
    
--- Reserva = locacao_m
+-- Reserva = locacao_m 
 INSERT INTO dwh.Reserva (Cd_Reserva)
 SELECT
     ID_Locacao AS Cd_Reserva
@@ -56,7 +55,6 @@ SELECT
 FROM
 	group_m.Reserva;
    
-
  
 -- Locacao (fact) = reserva_m
 INSERT INTO dwh.Locacao (Cd_Locacao, CD_Veiculo, CD_Patio, CD_Cliente, Nu_Total_por_veiculo, Qt_Locacoes_por_veiculo)
@@ -69,6 +67,12 @@ SELECT
     NULL AS Qt_Locacoes_por_veiculo
 FROM
     group_m.Reserva;
+
+INSERT INTO dwh.Locacao (CD_Patio)
+SELECT
+    Patio_Saida AS CD_Patio
+FROM
+	group_m.Locacao;
   
    
 -- Patio
