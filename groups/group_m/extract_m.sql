@@ -68,6 +68,8 @@ SELECT
 FROM
     group_m.Reserva;
 
+
+-- Insert Patio from group_m.locacao table
 INSERT INTO dwh.Locacao (CD_Patio)
 SELECT
     Patio_Saida AS CD_Patio
