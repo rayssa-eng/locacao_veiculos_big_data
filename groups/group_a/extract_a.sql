@@ -34,7 +34,7 @@ SELECT ID_Veiculo AS Cd_Veiculo,
        NULL AS Vl_Valor_da_Categoria,
        Placa AS Nu_Placa,
        NULL AS Nu_Chassi,
-       NULL AS Ds_Foto
+       Link_Fotos AS Ds_Foto
 FROM group_a.Veiculos;
 
 
