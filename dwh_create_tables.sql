@@ -8,8 +8,7 @@ CREATE TABLE dwh_cliente
     Nm_Cliente         VARCHAR(30),
     Cd_CNH             VARCHAR(30),
     Cd_CNPJ_CPF        VARCHAR(30),
-    Nm_Cidade          VARCHAR(30),
-    Nm_Estado          VARCHAR(30),
+    Endereco           VARCHAR(255),
     Dt_Nascimento      TIMESTAMP,
     Nu_Telefone        VARCHAR(30),
     Nm_Email           VARCHAR(30),
@@ -19,14 +18,14 @@ CREATE TABLE dwh_cliente
 );
 
 -- Dimension Table: Data
-CREATE TABLE dwh_data
-( 
-    Cd_Tempo           SERIAL PRIMARY KEY,
-    Hh_Hora            TIME,
-    Dd_Dia             INTEGER,
-    Mm_Mes             INTEGER,
-    Aa_Ano             INTEGER
-);
+-- CREATE TABLE dwh_data
+-- ( 
+--     Cd_Tempo           SERIAL PRIMARY KEY,
+--     Hh_Hora            TIME,
+--     Dd_Dia             INTEGER,
+--     Mm_Mes             INTEGER,
+--     Aa_Ano             INTEGER
+-- );
 
 -- Dimension Table: Patio
 CREATE TABLE dwh_patio
@@ -60,7 +59,7 @@ CREATE TABLE dwh_veiculo
     Cd_Categoria       VARCHAR(30),
     Vl_Valor_da_Categoria   DECIMAL(15,2),
     Ds_Ar_Condicionado BOOLEAN,
-    Ds_Foto            CHAR
+    Ds_Foto            VARCHAR(255),
 );
 
 -- Fact Table: Locacao
