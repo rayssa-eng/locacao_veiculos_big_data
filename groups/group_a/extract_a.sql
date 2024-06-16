@@ -1,7 +1,6 @@
--- Switch to group_a schema for extraction
 SET search_path TO group_a;
 
--- Clientes table
+-- Clientes
 INSERT INTO dwh.Cliente (Cd_Cliente, Nm_Cliente, Cd_CNH, Cd_CNPJ_CPF, Dt_Nascimento, Nu_Telefone, Nm_Email, Dt_Validade_CNH)
 SELECT ID_Cliente AS Cd_Cliente,
        Nome AS Nm_Cliente,
@@ -14,14 +13,14 @@ SELECT ID_Cliente AS Cd_Cliente,
 FROM group_a.Clientes;
 
 
--- Patios table
+-- Patios
 INSERT INTO dwh.Patio (Cd_Patio, Nm_Patio)
 SELECT ID_Patio AS Cd_Patio,
 	   NULL AS Nm_Patio
 FROM group_a.Patios;
 
 
--- Veiculos table
+-- Veiculos
 INSERT INTO dwh.Veiculo (Cd_Veiculo, Nm_Marca, Nm_Modelo, Nm_Cor, Ds_Ar_Condicionado, Ds_Motorizacao, Nm_Pneu, Cd_Categoria, Vl_Valor_da_Categoria, Nu_Placa, Nu_Chassi, Ds_Foto)
 SELECT ID_Veiculo AS Cd_Veiculo,
        Marca AS Nm_Marca,
@@ -38,7 +37,7 @@ SELECT ID_Veiculo AS Cd_Veiculo,
 FROM group_a.Veiculos;
 
 
--- Reservas table = locacao (fact)
+-- Locacao (fact) = reservas_m 
 INSERT INTO dwh.Locacao (Cd_Locacao, Cd_Veiculo, Cd_Cliente, Cd_Patio)
 SELECT ID_Reserva AS Cd_Locacao,
        ID_Veiculo AS Cd_Veiculo,

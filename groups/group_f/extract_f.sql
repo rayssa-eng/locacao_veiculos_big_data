@@ -1,7 +1,6 @@
--- Switch to group_f schema for extraction
 SET search_path TO group_f;
 
--- Cliente table
+-- Cliente
 INSERT INTO dwh.Cliente (Cd_Cliente, Nm_Cliente, Cd_CNPJ_CPF, Endereco, Nu_Telefone, Nm_Email)
 SELECT ClienteID AS Cd_Cliente,
        Nome AS Nm_Cliente,
@@ -13,13 +12,14 @@ FROM group_f.Cliente;
 
 -- Condutor skip
 
--- Patio table
+-- Patio
 INSERT INTO dwh.Patio (Cd_Patio, Nm_Patio)
 SELECT PatioID AS Cd_Patio,
        Nome AS Nm_Patio
 FROM group_f.Patio;
 
--- Reserva table
+
+-- Reserva
 INSERT INTO dwh.Reserva (Cd_Reserva, Dt_Reserva, Dt_Entrega, Dt_Devolucao, Cd_Situacao)
 SELECT ReservaID AS Cd_Reserva,
        DataReserva AS Dt_Reserva,
@@ -29,7 +29,7 @@ SELECT ReservaID AS Cd_Reserva,
 FROM group_f.Reserva;
 
 
--- Veículo table
+-- Veículo
 INSERT INTO dwh.Veiculo (Cd_Veiculo, Nu_Placa, Nm_Marca, Nm_Modelo, Nm_Cor, Ds_Ar_Condicionado, Ds_Motorizacao, Nm_Pneu, Cd_Categoria, Vl_Valor_da_Categoria, Ds_Foto)
 SELECT VeiculoID AS Cd_Veiculo,
        Placa AS Nu_Placa,
@@ -44,7 +44,7 @@ SELECT VeiculoID AS Cd_Veiculo,
        fotos::CHAR AS Ds_Foto
 FROM group_f.Veículo;
 
--- Locacao table
+-- Locacao (fact)
 INSERT INTO dwh.Locacao (Cd_Locacao, Cd_Reserva, Cd_Patio, Cd_Cliente, Nu_Total_por_Veiculo, Qt_Locacoes_por_Veiculo)
 SELECT LocacaoID AS Cd_Locacao,
        ReservaID AS Cd_Reserva,
