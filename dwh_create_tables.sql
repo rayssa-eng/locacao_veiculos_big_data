@@ -11,7 +11,7 @@ CREATE TABLE dwh_cliente
     Nm_Cidade          VARCHAR(30),
     Nm_Estado          VARCHAR(30),
     Dt_Nascimento      TIMESTAMP,
-    Nu_Telefone        INTEGER,
+    Nu_Telefone        VARCHAR(30),
     Nm_Email           VARCHAR(30),
     Dt_Validade_CNH    TIMESTAMP,
     Nm_Pneu            VARCHAR(30),
@@ -58,6 +58,7 @@ CREATE TABLE dwh_veiculo
     Nm_Modelo          VARCHAR(30),
     Nm_Marca           VARCHAR(30),
     Cd_Categoria       INTEGER,
+    Vl_Valor_da_Categoria   DECIMAL(15,2),
     Ds_Ar_Condicionado BOOLEAN,
     Ds_Foto            BYTEA
 );
