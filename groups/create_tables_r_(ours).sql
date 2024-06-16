@@ -52,7 +52,7 @@ CREATE TABLE Veiculo
     Nm_Modelo               VARCHAR(30),
     Nm_Marca                VARCHAR(30),
     Nm_Pneu                 VARCHAR(30),
-    Cd_Categoria            INTEGER,
+    Cd_Categoria            VARCHAR(30),
     Vl_Valor_da_Categoria   DECIMAL(15,2),
     Ds_Ar_Condicionado      BOOLEAN,
     Ds_Foto                 BYTEA -- URL
