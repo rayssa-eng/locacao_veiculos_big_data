@@ -67,13 +67,12 @@ GROUP BY Cd_Veiculo;
 
 
 -- Locacao (fact)
-INSERT INTO dwh.Locacao (Cd_Reserva, Cd_Patio, Cd_Cliente, Nu_Total_por_Veiculo, Qt_Locacoes_por_Veiculo)
+INSERT INTO dwh.Locacao (Cd_Reserva, Cd_Patio, Cd_Cliente)
 SELECT 
        ReservaID AS Cd_Reserva,
        PatioRetiradaID AS Cd_Patio,
        ClienteID AS Cd_Cliente,
-       NULL AS Nu_Total_por_Veiculo,
-       NULL AS Qt_Locacoes_por_Veiculo
+
 FROM group_f.Locacao;
 
 -- Qt_Locacoes_por_Veiculo
