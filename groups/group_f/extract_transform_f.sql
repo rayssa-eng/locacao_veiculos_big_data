@@ -39,7 +39,7 @@ FROM group_f.Reserva;
 INSERT INTO dwh.Veiculo (Cd_Veiculo, Nu_Placa, Nu_Chassi, Nm_Marca, Nm_Modelo, Nm_Cor, Ds_Ar_Condicionado, Ds_Motorizacao, Nm_Pneu, Cd_Categoria, Vl_Valor_da_Categoria, Ds_Foto)
 SELECT VeiculoID AS Cd_Veiculo,
        Placa AS Nu_Placa,
-	   Chassis AS Nu_Chassi,
+	Chassis AS Nu_Chassi,
        Marca AS Nm_Marca,
        Modelo AS Nm_Modelo,
        Cor AS Nm_Cor,
