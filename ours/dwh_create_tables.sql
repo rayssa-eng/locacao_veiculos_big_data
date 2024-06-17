@@ -47,7 +47,7 @@ CREATE TABLE dwh_reserva
     Dt_Reserva         TIMESTAMP,
     Dt_Entrega         TIMESTAMP,
     Dt_Devolucao       TIMESTAMP,
-    Cd_Situacao        BOOLEAN
+    Cd_Situacao        VARCHAR(30)
 );
 
 -- Dimension Table: Veiculo
@@ -77,8 +77,8 @@ CREATE TABLE dwh_locacao
     Cd_Cliente         INTEGER NOT NULL,
     Cd_Reserva         INTEGER NOT NULL,
     Qt_Locacoes_por_Veiculo INTEGER,
-    Qt_Reserva         INTEGER NOT NULL,
-    Nu_Quantidade      INTEGER NOT NULL
+    -- Qt_Reserva         INTEGER NOT NULL,
+    -- Nu_Quantidade      INTEGER NOT NULL
 
     FOREIGN KEY (Cd_Veiculo) REFERENCES dwh_veiculo(Cd_Veiculo),
     FOREIGN KEY (Cd_Tempo) REFERENCES dwh_data(Cd_Tempo),

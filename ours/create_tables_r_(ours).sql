@@ -75,8 +75,8 @@ CREATE TABLE Locacao
     Cd_Cliente         INTEGER NOT NULL,
     Cd_Reserva         INTEGER NOT NULL,
     Qt_Locacoes_por_Veiculo INTEGER,
-    Qt_Reserva         INTEGER NOT NULL,
-    Nu_Quantidade      INTEGER NOT NULL
+    -- Qt_Reserva         INTEGER NOT NULL,
+    -- Nu_Quantidade      INTEGER NOT NULL
     FOREIGN KEY (Cd_Veiculo) REFERENCES Veiculo(Cd_Veiculo),
     FOREIGN KEY (Cd_Tempo) REFERENCES Data(Cd_Tempo),
     FOREIGN KEY (Cd_Patio) REFERENCES Patio(Cd_Patio),
