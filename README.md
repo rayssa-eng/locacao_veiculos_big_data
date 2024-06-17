@@ -8,7 +8,7 @@ Esta avaliação consiste em unificar 4 databases de 4 locadoras de veículos di
 A fim de focar no intuito da avaliação, o modelo consistirá em apenas 5 entidades/relacionamentos: cliente, veículos (frota), pátio, reservas e locações (ou aluguel). 
 
 
-![](https://github.com/rayssa-eng/locacao_veiculos_big_data/blob/master/ours/diagram_r_(ours).jpg?raw=True)
+![](https://raw.githubusercontent.com/rayssa-eng/locacao_veiculos_big_data/master/ours/diagram_r_(ours).jpg?raw=True)
 
 
 Nosso fato central é a entidade "Locação".
