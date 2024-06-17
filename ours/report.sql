@@ -33,7 +33,7 @@ select
 	veiculo.ds_motorizacao,
 	reserva.dt_entrega,
 	reserva.dt_devolucao,
-	sum(locacao.nu_quantidade) as "Total"
+	sum(locacao.nu_quantidade_veiculo) as "Total"
 from
 	veiculo,
 	reserva
