@@ -71,7 +71,6 @@ CREATE TABLE Locacao
 ( 
     Cd_Locacao         SERIAL PRIMARY KEY,
     Cd_Veiculo         INTEGER NOT NULL,
-    Cd_Tempo           INTEGER NOT NULL,
     Cd_Patio           INTEGER NOT NULL,
     Cd_Cliente         INTEGER NOT NULL,
     Cd_Reserva         INTEGER NOT NULL,
