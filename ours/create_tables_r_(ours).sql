@@ -4,6 +4,9 @@
 -- Rayssa Cristina de Almeida, DRE: 121041567
 
 
+
+
+
 -- Dimension Table: Cliente
 CREATE TABLE Cliente
 ( 
@@ -75,7 +78,7 @@ CREATE TABLE Locacao
     Cd_Reserva         INTEGER NOT NULL,
     Qt_Locacoes_por_Veiculo INTEGER,
     Qt_Reserva         INTEGER NOT NULL,
-    Nu_Quantidade      INTEGER NOT NULL
+    Nu_Quantidade_Veiculo   INTEGER NOT NULL
     FOREIGN KEY (Cd_Veiculo) REFERENCES Veiculo(Cd_Veiculo),
     FOREIGN KEY (Cd_Tempo) REFERENCES Data(Cd_Tempo),
     FOREIGN KEY (Cd_Patio) REFERENCES Patio(Cd_Patio),
