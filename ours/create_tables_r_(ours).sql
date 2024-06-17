@@ -71,11 +71,14 @@ CREATE TABLE Locacao
 ( 
     Cd_Locacao         SERIAL PRIMARY KEY,
     Cd_Veiculo         INTEGER NOT NULL,
+    Cd_Tempo           INTEGER NOT NULL,
     Cd_Patio           INTEGER NOT NULL,
     Cd_Cliente         INTEGER NOT NULL,
     Cd_Reserva         INTEGER NOT NULL,
-    Nu_Total_por_Veiculo INTEGER,
+    Dt_Intervalo_de_Tempo TIMESTAMP,
     Qt_Locacoes_por_Veiculo INTEGER,
+    Qt_Reserva         INTEGER NOT NULL,
+    Nu_Quantidade      INTEGER NOT NULL
     FOREIGN KEY (Cd_Veiculo) REFERENCES Veiculo(Cd_Veiculo),
     FOREIGN KEY (Cd_Tempo) REFERENCES Data(Cd_Tempo),
     FOREIGN KEY (Cd_Patio) REFERENCES Patio(Cd_Patio),

@@ -78,8 +78,10 @@ CREATE TABLE dwh_locacao
     Cd_Cliente         INTEGER NOT NULL,
     Cd_Reserva         INTEGER NOT NULL,
     Dt_Intervalo_de_Tempo TIMESTAMP,
-    Nu_Total_por_Veiculo INTEGER,
     Qt_Locacoes_por_Veiculo INTEGER,
+    Qt_Reserva         INTEGER NOT NULL,
+    Nu_Quantidade      INTEGER NOT NULL
+
     FOREIGN KEY (Cd_Veiculo) REFERENCES dwh_veiculo(Cd_Veiculo),
     FOREIGN KEY (Cd_Tempo) REFERENCES dwh_data(Cd_Tempo),
     FOREIGN KEY (Cd_Patio) REFERENCES dwh_patio(Cd_Patio),
