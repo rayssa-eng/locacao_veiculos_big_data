@@ -53,8 +53,9 @@ FROM
 
    
 -- Insert reserva_m info into Reserva
-INSERT INTO dwh.Reserva (Dt_Reserva, Dt_Entrega, Dt_Devolucao)
+INSERT INTO dwh.Reserva (Cd_Reserva, Dt_Reserva, Dt_Entrega, Dt_Devolucao)
 SELECT
+    ID_Locacao AS Cd_Reserva,
     Data_Reserva AS Dt_Reserva,
     Data_Retirada AS Dt_Entrega,
     Data_Devolucao AS Dt_Devolucao
@@ -63,14 +64,10 @@ FROM
    
  
 -- Locacao (fact) = reserva_m
-INSERT INTO dwh.Locacao (Cd_Locacao, CD_Veiculo, CD_Patio, CD_Cliente, Nu_Total_por_veiculo, Qt_Locacoes_por_veiculo)
-SELECT
-    ID_Reserva AS Cd_Locacao,
+INSERT INTO dwh.Locacao (CD_Veiculo, CD_Patio, CD_Cliente, Nu_Total_por_veiculo, Qt_Locacoes_por_veiculo)
+SELECT 
     ID_Veiculo AS CD_Veiculo,
-    NULL AS CD_Patio,
-    ID_Cliente AS CD_Cliente,
-    NULL AS Nu_Total_por_veiculo,
-    NULL AS Qt_Locacoes_por_veiculo
+    ID_Cliente AS CD_Cliente,   
 FROM
     group_m.Reserva;
 

@@ -48,9 +48,8 @@ FROM group_a.grupos_veiculos;
 
 
 -- Locacao (fact) = reservas_m 
-INSERT INTO dwh.Locacao (Cd_Locacao, Cd_Veiculo, Cd_Cliente, Cd_Patio)
-SELECT ID_Reserva AS Cd_Locacao,
-       ID_Veiculo AS Cd_Veiculo,
+INSERT INTO dwh.Locacao (Cd_Veiculo, Cd_Cliente, Cd_Patio)
+SELECT ID_Veiculo AS Cd_Veiculo,
        ID_Cliente AS Cd_Cliente,
        Patio_Retirada AS CD_Patio
 FROM group_a.Reservas;
@@ -59,14 +58,13 @@ FROM group_a.Reservas;
 INSERT INTO dwh.Reserva (Dt_Reserva, Dt_Entrega, Dt_Devolucao)
 
 SELECT Data_Reserva AS Dt_Reserva,
-	   Data_Inicio  AS Dt_Entrega,
-	   Data_Fim AS Dt_Devolucao
+	Data_Inicio  AS Dt_Entrega,
+	Data_Fim AS Dt_Devolucao
 FROM group_a.Reservas;
 	   
 
 -- Locacoes table = reserva
 INSERT INTO dwh.Reserva (Cd_Reserva, Cd_Situacao)
-SELECT 
-       ID_Locacao AS Cd_Reserva,
-	   Status_Locacao AS CD_Situacao
+SELECT ID_Locacao AS Cd_Reserva,
+	Status_Locacao AS CD_Situacao
 FROM group_a.Locacoes;

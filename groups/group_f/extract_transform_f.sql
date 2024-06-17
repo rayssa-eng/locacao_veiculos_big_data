@@ -20,14 +20,16 @@ FROM group_f.Cliente;
 
 -- Patio
 INSERT INTO dwh.Patio (Cd_Patio, Nm_Patio)
-SELECT PatioID AS Cd_Patio,
+SELECT 
+       PatioID AS Cd_Patio,
        Nome AS Nm_Patio
 FROM group_f.Patio;
 
 
 -- Reserva
 INSERT INTO dwh.Reserva (Cd_Reserva, Dt_Reserva, Dt_Entrega, Dt_Devolucao, Cd_Situacao)
-SELECT ReservaID AS Cd_Reserva,
+SELECT 
+       ReservaID AS Cd_Reserva,
        DataReserva AS Dt_Reserva,
        DataInicio AS Dt_Entrega,
        DataFim AS Dt_Devolucao,
@@ -37,7 +39,8 @@ FROM group_f.Reserva;
 
 -- Veículo
 INSERT INTO dwh.Veiculo (Cd_Veiculo, Nu_Placa, Nu_Chassi, Nm_Marca, Nm_Modelo, Nm_Cor, Ds_Ar_Condicionado, Ds_Motorizacao, Nm_Pneu, Cd_Categoria, Vl_Valor_da_Categoria, Ds_Foto)
-SELECT VeiculoID AS Cd_Veiculo,
+SELECT 
+       VeiculoID AS Cd_Veiculo,
        Placa AS Nu_Placa,
 	Chassis AS Nu_Chassi,
        Marca AS Nm_Marca,
@@ -53,8 +56,8 @@ FROM group_f.Veículo;
 
 
 -- Locacao (fact)
-INSERT INTO dwh.Locacao (Cd_Locacao, Cd_Reserva, Cd_Patio, Cd_Cliente, Nu_Total_por_Veiculo, Qt_Locacoes_por_Veiculo)
-SELECT LocacaoID AS Cd_Locacao,
+INSERT INTO dwh.Locacao (Cd_Reserva, Cd_Patio, Cd_Cliente, Nu_Total_por_Veiculo, Qt_Locacoes_por_Veiculo)
+SELECT 
        ReservaID AS Cd_Reserva,
        PatioRetiradaID AS Cd_Patio,
        ClienteID AS Cd_Cliente,
