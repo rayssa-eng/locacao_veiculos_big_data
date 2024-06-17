@@ -1,3 +1,4 @@
+
 -- Grupo:
 -- Felipe da Costa Marroni, DRE: 115092322
 -- Janine Qiao Ma, DRE: 110072270
@@ -41,6 +42,12 @@ SELECT ID_Veiculo AS Cd_Veiculo,
        Link_Fotos AS Ds_Foto
 FROM group_a.Veiculos;
 
+-- Nu_Quantidade_Veiculo
+INSERT INTO dwh.Veiculo (Nu_Quantidade_Veiculo)
+SELECT COUNT(Cd_Veiculo)
+FROM dwh.Veiculo
+GROUP BY Cd_Veiculo;
+
 -- Grupo = categoria
 INSERT INTO dwh.Veiculo(Cd_Categoria)
 SELECT nome_grupo AS Cd_Categoria
@@ -54,17 +61,29 @@ SELECT ID_Veiculo AS Cd_Veiculo,
        Patio_Retirada AS CD_Patio
 FROM group_a.Reservas;
 
--- Insert dates into our Reserva table
-INSERT INTO dwh.Reserva (Dt_Reserva, Dt_Entrega, Dt_Devolucao)
+-- Qt_Locacoes_por_Veiculo
+INSERT INTO dwh.Locacao (Qt_Locacoes_por_Veiculo)
+SELECT COUNT(Cd_Veiculo)
+FROM dwh.Locacao
+GROUP BY Cd_Veiculo;
 
-SELECT Data_Reserva AS Dt_Reserva,
-	Data_Inicio  AS Dt_Entrega,
-	Data_Fim AS Dt_Devolucao
-FROM group_a.Reservas;
-	   
 
 -- Locacoes table = reserva
 INSERT INTO dwh.Reserva (Cd_Reserva, Cd_Situacao)
 SELECT ID_Locacao AS Cd_Reserva,
 	Status_Locacao AS CD_Situacao
 FROM group_a.Locacoes;
+
+-- Insert dates into our Reserva table
+INSERT INTO dwh.Reserva (Dt_Reserva, Dt_Entrega, Dt_Devolucao)
+SELECT Data_Reserva AS Dt_Reserva,
+	Data_Inicio  AS Dt_Entrega,
+	Data_Fim AS Dt_Devolucao
+FROM group_a.Reservas;
+
+
+-- Qt_Reserva
+INSERT INTO dwh.Reserva (Qt_Reserva)
+SELECT COUNT(Cd_Reserva)
+FROM dwh.Reserva
+GROUP BY Cd_Reserva;

@@ -36,6 +36,11 @@ SELECT
        Status AS Cd_Situacao
 FROM group_f.Reserva;
 
+-- Qt_Reserva
+INSERT INTO dwh.Locacao (Qt_Reserva)
+SELECT COUNT(Cd_Reserva)
+FROM dwh.Reserva
+GROUP BY Cd_Reserva;
 
 -- Veículo
 INSERT INTO dwh.Veiculo (Cd_Veiculo, Nu_Placa, Nu_Chassi, Nm_Marca, Nm_Modelo, Nm_Cor, Ds_Ar_Condicionado, Ds_Motorizacao, Nm_Pneu, Cd_Categoria, Vl_Valor_da_Categoria, Ds_Foto)
@@ -54,6 +59,12 @@ SELECT
        fotos::CHAR AS Ds_Foto
 FROM group_f.Veículo;
 
+-- Nu_Quantidade_Veiculo
+INSERT INTO dwh.Locacao (Nu_Quantidade_Veiculo)
+SELECT COUNT(Cd_Veiculo)
+FROM dwh.Veiculo
+GROUP BY Cd_Veiculo;
+
 
 -- Locacao (fact)
 INSERT INTO dwh.Locacao (Cd_Reserva, Cd_Patio, Cd_Cliente, Nu_Total_por_Veiculo, Qt_Locacoes_por_Veiculo)
@@ -64,3 +75,9 @@ SELECT
        NULL AS Nu_Total_por_Veiculo,
        NULL AS Qt_Locacoes_por_Veiculo
 FROM group_f.Locacao;
+
+-- Qt_Locacoes_por_Veiculo
+INSERT INTO dwh.Locacao (Nu_Quantidade_Veiculo)
+SELECT COUNT(Cd_Veiculo)
+FROM dwh.Veiculo
+GROUP BY Cd_Veiculo;

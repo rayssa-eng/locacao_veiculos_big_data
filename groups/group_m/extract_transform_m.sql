@@ -26,7 +26,12 @@ SELECT
 	Nome AS Cd_Categoria,
 	Faixa_Valor_Diaria AS Vl_Valor_da_Categoria
 FROM group_m.Grupo_Categoria;
-   
+
+-- Nu_Quantidade_Veiculo
+INSERT INTO dwh.Locacao (Nu_Quantidade_Veiculo)
+SELECT COUNT(Cd_Veiculo)
+FROM dwh.Veiculo
+GROUP BY Cd_Veiculo;
    
 
 -- Cliente
@@ -51,6 +56,11 @@ SELECT
 FROM
     group_m.Locacao;
 
+-- Qt_Reserva
+INSERT INTO dwh.Locacao (Qt_Reserva)
+SELECT COUNT(Cd_Reserva)
+FROM dwh.Reserva
+GROUP BY Cd_Reserva;
    
 -- Insert reserva_m info into Reserva
 INSERT INTO dwh.Reserva (Cd_Reserva, Dt_Reserva, Dt_Entrega, Dt_Devolucao)
@@ -72,13 +82,26 @@ FROM
     group_m.Reserva;
 
 
+-- Qt_Locacoes_por_Veiculo
+INSERT INTO dwh.Locacao (Nu_Quantidade_Veiculo)
+SELECT COUNT(Cd_Veiculo)
+FROM dwh.Veiculo
+GROUP BY Cd_Veiculo;
+
+
 -- Insert Patio from group_m.locacao table
 INSERT INTO dwh.Locacao (CD_Patio)
 SELECT
     Patio_Saida AS CD_Patio
 FROM
 	group_m.Locacao;
-  
+
+
+-- Nu_Quantidade_Veiculo
+INSERT INTO dwh.Locacao (Nu_Quantidade_Veiculo)
+SELECT COUNT(Cd_Veiculo)
+FROM dwh.Veiculo
+GROUP BY Cd_Veiculo;
    
 -- Patio
 INSERT INTO dwh.Patio (Cd_Patio, Nm_Patio)
