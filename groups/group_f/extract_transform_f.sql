@@ -76,7 +76,7 @@ SELECT
 FROM group_f.Locacao;
 
 -- Qt_Locacoes_por_Veiculo
-INSERT INTO dwh.Locacao (Nu_Quantidade_Veiculo)
+INSERT INTO dwh.Locacao (Qt_Locacoes_por_veiculo)
 SELECT COUNT(Cd_Veiculo)
-FROM dwh.Veiculo
+FROM dwh.Locacao
 GROUP BY Cd_Veiculo;

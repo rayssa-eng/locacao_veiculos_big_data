@@ -42,8 +42,8 @@ SELECT ID_Veiculo AS Cd_Veiculo,
        Link_Fotos AS Ds_Foto
 FROM group_a.Veiculos;
 
--- Nu_Quantidade_Veiculo
-INSERT INTO dwh.Veiculo (Nu_Quantidade_Veiculo)
+ -- Nu_Quantidade_Veiculo
+INSERT INTO dwh.Locacao (Nu_Quantidade_Veiculo)
 SELECT COUNT(Cd_Veiculo)
 FROM dwh.Veiculo
 GROUP BY Cd_Veiculo;
@@ -62,7 +62,7 @@ SELECT ID_Veiculo AS Cd_Veiculo,
 FROM group_a.Reservas;
 
 -- Qt_Locacoes_por_Veiculo
-INSERT INTO dwh.Locacao (Qt_Locacoes_por_Veiculo)
+INSERT INTO dwh.Locacao (Qt_Locacoes_por_veiculo)
 SELECT COUNT(Cd_Veiculo)
 FROM dwh.Locacao
 GROUP BY Cd_Veiculo;
