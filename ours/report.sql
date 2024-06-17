@@ -8,7 +8,7 @@ select
 	veiculo.nm_marca,
 	veiculo.nm_modelo,
 	veiculo.ds_motorizacao,
-	sum(locacao.nu_quantidade) as "Total"
+	sum(locacao.nu_quantidade_veiculo) as "Total"
 from
 	veiculo,
 	patio, 
