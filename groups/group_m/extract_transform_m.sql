@@ -1,3 +1,9 @@
+-- Grupo:
+-- Felipe da Costa Marroni, DRE: 115092322
+-- Janine Qiao Ma, DRE: 110072270
+-- Rayssa Cristina de Almeida, DRE: 121041567
+
+
 SET search_path TO group_m;
 
 

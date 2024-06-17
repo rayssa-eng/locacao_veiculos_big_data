@@ -1,5 +1,13 @@
 
+-- Grupo:
+-- Felipe da Costa Marroni, DRE: 115092322
+-- Janine Qiao Ma, DRE: 110072270
+-- Rayssa Cristina de Almeida, DRE: 121041567
+
+
+
 -- Assuming temp_something are the temporary tables storing the data manipulated in ET.
+
 
 SET search_path TO dwh;
 
