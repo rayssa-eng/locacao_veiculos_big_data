@@ -64,7 +64,7 @@ FROM
    
  
 -- Locacao (fact) = reserva_m
-INSERT INTO dwh.Locacao (CD_Veiculo, CD_Patio, CD_Cliente, Nu_Total_por_veiculo, Qt_Locacoes_por_veiculo)
+INSERT INTO dwh.Locacao (CD_Veiculo, CD_Cliente)
 SELECT 
     ID_Veiculo AS CD_Veiculo,
     ID_Cliente AS CD_Cliente,   
